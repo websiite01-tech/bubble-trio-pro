@@ -496,20 +496,20 @@ export default function BubbleShooter() {
       const point = mapPointer(event);
       state.aim = point;
       if (point.x > CONTROL_X) {
-        if (point.x > 720 && point.x < 800 && point.y > 55 && point.y < 145) {
+        if (distance(point.x, point.y, 760, 99) < 39) {
           stateRef.current = freshGame();
           return;
         }
-        if (point.y > 150 && point.y < 210) {
+        if (distance(point.x, point.y, 836, 152) < 37) {
           state.muted = !state.muted;
           state.message = state.muted ? "Sound effects are muted." : "Sound toggle changed. Visual play is enabled.";
           return;
         }
-        if (point.y > 170 && point.y < 240 && point.x < 755) {
+        if (distance(point.x, point.y, 717, 206) < 35) {
           state.help = !state.help;
           return;
         }
-        if (point.y > 190 && point.y < 270 && point.x > 815) {
+        if (distance(point.x, point.y, 853, 232) < 40) {
           state.message = "Choose another game from the left menu.";
           return;
         }
