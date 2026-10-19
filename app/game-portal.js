@@ -306,7 +306,7 @@ function MemoryMatch({ level, onComplete, onNextLevel }) {
       </div>
       <div className="goal-hint"><span className="hint-star">✦</span><p><b>Recall tip</b><span>{level.hint}</span></p></div>
       <p className="stage-instruction" role="status" aria-live="polite">{message}</p>
-      {status === "won" && <div className="level-result result-win"><b>✦ ALL PAIRS FOUND</b><span>Level complete. The next memory challenge is unlocked.</span><div><button type="button" className="primary-button" onClick={onNextLevel}>Next level →</button></div></div>}
+      {status === "won" && <div className="level-result result-win"><b>✦ ALL PAIRS FOUND</b><span>Level complete. The next memory challenge is unlocked.</span><div><button type="button" className="primary-button" onClick={level.level === 30 ? restart : onNextLevel}>{level.level === 30 ? "Replay final memory round ↻" : "Next level →"}</button></div></div>}
     </div>
   );
 }
