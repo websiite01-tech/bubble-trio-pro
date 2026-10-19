@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const COLORS = [
   { name: "Red", hex: "#ff263c", light: "#ff8a95" },
@@ -600,8 +600,8 @@ export default function BubbleShooter({ level = { level: 1, rows: 9, colours: 6,
   return (
     <section className="bubble-shooter-panel" id="bubble-shooter" aria-label="Playable Bubble Shooter">
       <div className="shooter-heading">
-        <div><span className="shooter-eyebrow">CLASSIC ARCADE PUZZLE</span><h3>Bubble Shooter</h3><p>Aim, bounce, match three or more bubbles, and clear the board.</p></div>
-        <span className="shooter-status"><i /> PLAY NOW</span>
+        <div><span className="shooter-eyebrow">LEVEL {String(level.level).padStart(2, "0")} / 30 · CLASSIC ARCADE</span><h3>{level.name}</h3><p>Aim, bounce, match three or more bubbles, and clear the board.</p></div>
+        <span className="shooter-status"><i /> LEVEL {level.level} / 30</span>
       </div>
       <div className="shooter-canvas-wrap">
         <canvas ref={canvasRef} width={WIDTH} height={HEIGHT} aria-label="Bubble Shooter game board. Move the pointer to aim, then click or tap inside the playfield to launch a bubble. Match at least three bubbles of the same colour." />
@@ -611,7 +611,8 @@ export default function BubbleShooter({ level = { level: 1, rows: 9, colours: 6,
         <button type="button" className="shooter-control" onClick={toggleHelp}>? How to play</button>
         <span className="shooter-key-tip">Aim with mouse or touch · Tap the board to shoot</span>
       </div>
-      <p className="shooter-instruction">Each shot launches the current bubble. Match at least three connected bubbles of the same colour to remove them. Unsupported bubbles fall for bonus points. After several misses, the ceiling advances, so plan your next shot.</p>
+      <p className="shooter-instruction">{level.goal || "Clear every bubble"}: match at least three connected bubbles of the same colour to remove them. Unsupported bubbles fall for bonus points. This board begins with {level.rows} rows and {level.colours} colours. Level hint: {level.hint}</p>
+      {levelCompleted && <div className="level-result result-win"><b>✦ LEVEL {level.level} CLEARED</b><span>{level.level === 30 ? "You beat all thirty Bubble Shooter levels. Replay this expert challenge whenever you like." : "Brilliant shot! Level " + (level.level + 1) + " is now unlocked."}</span><div><button type="button" className="primary-button" onClick={level.level === 30 ? restart : onNextLevel}>{level.level === 30 ? "Replay final level ↻" : "Next level →"}</button></div></div>}
     </section>
   );
 }
