@@ -446,7 +446,7 @@ function attachBubble(state) {
 
   if (!state.gameOver && state.misses >= (state.level.missLimit || 5)) {
     state.grid.pop();
-    state.grid.unshift(Array.from({ length: COLS }, () => randomColour()));
+    state.grid.unshift(Array.from({ length: COLS }, () => randomColour(state.level.colours || COLORS.length)));
     state.misses = 0;
     if (state.grid[MAX_ROWS - 1].some((colour) => colour !== null)) {
       state.gameOver = true;
