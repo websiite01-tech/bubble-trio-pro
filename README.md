@@ -1,12 +1,12 @@
 # Bubble Trio Pro
 
-A responsive, dark-mode browser game portal built with Next.js App Router, React, and Tailwind CSS 4.
+A responsive classic-style Bubble Shooter portal built with Next.js App Router, React, and Tailwind CSS 4.
 
 ## Included
 
-- Eleven original, interactive browser mini-games, featuring a large Bubble Shooter canvas game plus Bubble Pop, Memory Match, Number Rush, Tic-Tac-Toe, Quick Math, Reaction Test, Rock Paper Scissors, Word Scramble, Colour Match, and Whack-a-Dot.
+- Exactly three original browser games, each with 30 levels: Bubble Shooter, Bubble Pop Puzzle, and Memory Match (90 level challenges in total).
 - Responsive three-column desktop layout, stacked mobile layout, keyboard-friendly buttons, focus states, and reduced-motion support.
-- Server-rendered player guide with game rules, scoring explanations, and FAQs.
+- A substantial player guide with game rules, per-game strategy, scoring explanations, hints, and 12 frequently asked questions with answers.
 - About, privacy, cookie policy, terms of use, and contact information pages.
 - Clearly labelled, reserved ad spaces with stable minimum heights. They are placeholders, not active AdSense units.
 - SEO metadata and a site icon.
@@ -33,12 +33,18 @@ Current Vercel deployment: https://bubble-trio-pro.vercel.app. A custom domain c
 
 Most site styling is in app/globals.css. The final override block is named Bubble Trio Pro: classic bubble-shooter portal skin and contains the light theme, game thumbnails, spacing, and responsive breakpoints. Homepage copy lives in app/page.js; the game catalog and navigation wiring live in app/game-portal.js; the canvas mechanics and its original drawing functions live in app/bubble-shooter.js; category navigation and search live in app/site-header.js.
 
+## Editing game content
+
+Open `app/game-content.js` to edit the three games' names, descriptions, the 30 level names/hints/board patterns/difficulty values for each game, Bubble Pop score targets and move budgets, Memory Match pair counts and themes, the player instructions, and the FAQ answers. The homepage long-form guide is maintained in `app/page.js`. Styling and spacing are in `app/globals.css`; Bubble Shooter mechanics live in `app/bubble-shooter.js`; the two other game engines and level progression are in `app/game-portal.js`.
+
+Edits to `app/game-content.js` are intended to be safe content configuration changes. To change the actual game rules or controls, change the engine files and test the build. The owner can request changes in plain English and have them committed directly to the connected GitHub repository—there is no need to paste full files into chat.
+
 ## AdSense readiness
 
 No live ad code or publisher ID is included. Read ADSENSE_READINESS.md before applying. After the site and publisher are eligible, configure real ad units separately, preserve layout space, keep ads away from game controls and navigation, update the actual privacy disclosures, and configure any consent management that is applicable. A compliant-looking template cannot guarantee AdSense approval.
 
 ## Notes
 
-- Game scores are client-side and do not persist across reloads.
+- Game scores are client-side and reset with a new round; unlocked level progression is saved in local browser storage.
 - No logins, payment flows, third-party game embeds, or site-specific analytics are implemented.
 - The public GitHub issue tracker is used for feedback until a private contact channel is configured.
