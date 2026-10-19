@@ -35,6 +35,8 @@ Most site styling is in app/globals.css. The final override block is named Bubbl
 
 ## Editing game content
 
+For a step-by-step owner reference, see `OWNER_EDIT_GUIDE.md`.
+
 Open `app/game-content.js` to edit the three games' names, descriptions, the 30 level names/hints/board patterns/difficulty values for each game, Bubble Pop score targets and move budgets, Memory Match pair counts and themes, the player instructions, and the FAQ answers. The homepage long-form guide is maintained in `app/page.js`. Styling and spacing are in `app/globals.css`; Bubble Shooter mechanics live in `app/bubble-shooter.js`; the two other game engines and level progression are in `app/game-portal.js`.
 
 Edits to `app/game-content.js` are intended to be safe content configuration changes. To change the actual game rules or controls, change the engine files and test the build. The owner can request changes in plain English and have them committed directly to the connected GitHub repository—there is no need to paste full files into chat.
