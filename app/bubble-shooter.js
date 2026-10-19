@@ -28,6 +28,27 @@ function randomColour() {
   return Math.floor(Math.random() * COLORS.length);
 }
 
+function playTone(frequency = 440, duration = 0.07) {
+  try {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+    const audio = new AudioContextClass();
+    const oscillator = audio.createOscillator();
+    const gain = audio.createGain();
+    oscillator.type = "sine";
+    oscillator.frequency.value = frequency;
+    gain.gain.setValueAtTime(0.035, audio.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audio.currentTime + duration);
+    oscillator.connect(gain);
+    gain.connect(audio.destination);
+    oscillator.start();
+    oscillator.stop(audio.currentTime + duration);
+    oscillator.onended = () => audio.close();
+  } catch {
+    // The game remains fully playable when browser audio is unavailable.
+  }
+}
+
 function makeGrid() {
   const grid = Array.from({ length: MAX_ROWS }, () => Array(COLS).fill(null));
   for (let row = 0; row < 9; row += 1) {
@@ -138,7 +159,7 @@ function drawCircleButton(ctx, x, y, radius, top, bottom, label, smallLabel = ""
   ctx.stroke();
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillStyle = bottom === "#fefefe" ? "#282a6c" : "#fff";
+  ctx.fillStyle = ["#fefefe", "#d4c500", "#079d22", "#079ca9"].includes(bottom) ? "#24316b" : "#fff";
   ctx.font = "800 " + (label.length > 8 ? "10" : "12") + "px Arial";
   ctx.fillText(label, x, y - (smallLabel ? 4 : 0));
   if (smallLabel) {
@@ -387,6 +408,7 @@ function attachBubble(state) {
   state.grid[best.row][best.col] = projectile.colour;
   const matches = getMatches(state.grid, best.col, best.row, projectile.colour);
   if (matches.length >= 3) {
+    if (!state.muted) playTone(560 + Math.min(matches.length, 8) * 45, 0.12);
     matches.forEach(([col, row]) => { state.grid[row][col] = null; });
     const fallen = removeFloatingBubbles(state.grid);
     state.score += matches.length * 10 + Math.max(0, matches.length - 3) * 5 + fallen * 10;
@@ -502,7 +524,7 @@ export default function BubbleShooter() {
         }
         if (distance(point.x, point.y, 836, 152) < 37) {
           state.muted = !state.muted;
-          state.message = state.muted ? "Sound effects are muted." : "Sound toggle changed. Visual play is enabled.";
+          state.message = state.muted ? "Sound effects are muted." : "Sound effects are enabled.";
           return;
         }
         if (distance(point.x, point.y, 717, 206) < 35) {
@@ -521,6 +543,7 @@ export default function BubbleShooter() {
       if (dy >= -10) return;
       const length = Math.sqrt(dx * dx + dy * dy) || 1;
       state.help = false;
+      if (!state.muted) playTone(380, 0.055);
       state.projectile = {
         x: SHOOT_X,
         y: SHOOT_Y,
