@@ -27,7 +27,7 @@ Open http://localhost:3000.
 
 ## Deployment and domain
 
-Connect this repository to a Vercel project and deploy from the main branch. Vercel provides a default deployment domain; a custom domain can be added later. Do not add a made-up canonical domain or DNS record. Once a stable production URL exists, set NEXT_PUBLIC_SITE_URL to that exact HTTPS origin and use it for sitemap and canonical metadata if configured.
+Current Vercel deployment: https://bubble-trio-pro.vercel.app. A custom domain can be added later. The current build was deployed directly from the committed source files. To enable automatic deployments on every GitHub push, install/authorize the Vercel GitHub integration for the websiite01-tech account and connect this repository in the Vercel project's Git settings. Do not add a made-up canonical domain or DNS record. Once you choose a custom domain, set NEXT_PUBLIC_SITE_URL to that exact HTTPS origin and keep sitemap and canonical metadata aligned with it.
 
 ## Editing the visual design
 
