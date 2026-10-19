@@ -316,7 +316,7 @@ export default function GamePortal({ initialGame = "bubble-shooter" }) {
   const [selectedLevels, setSelectedLevels] = useState({ ...DEFAULT_PROGRESS });
   const [progress, setProgress] = useState({ ...DEFAULT_PROGRESS });
   const [progressReady, setProgressReady] = useState(false);
-  const [note, setNote] = useState("Choose a game and work your way through its 30 levels.");
+  const [note, setNote] = useState("");
 
   useEffect(() => {
     setProgress(readProgress());
@@ -329,8 +329,14 @@ export default function GamePortal({ initialGame = "bubble-shooter" }) {
     const onSearch = (event) => {
       const value = String(event.detail || "").toLowerCase();
       const match = GAMES.find((game) => (game.name + " " + game.description + " " + game.category).toLowerCase().includes(value));
-      if (match) setActiveGame(match.id);
-      else if (value) setNote("No game matched that search. Try Bubble Shooter, Bubble Pop Puzzle, or Memory Match.");
+      if (match) {
+        setActiveGame(match.id);
+        setNote("");
+      } else if (value) {
+        setNote("No game matched that search. Try Bubble Shooter, Bubble Pop Puzzle, or Memory Match.");
+      } else {
+        setNote("");
+      }
     };
     window.addEventListener("bubble-portal-filter", onFilter);
     window.addEventListener("bubble-portal-search", onSearch);
@@ -353,7 +359,7 @@ export default function GamePortal({ initialGame = "bubble-shooter" }) {
 
   function selectGame(gameId) {
     setActiveGame(gameId);
-    setNote("Ready to play " + (GAMES.find((game) => game.id === gameId)?.name || "your game") + ". Choose an unlocked level and read its goal.");
+    setNote("");
   }
 
   function chooseLevel(levelNumber) {
@@ -393,6 +399,7 @@ export default function GamePortal({ initialGame = "bubble-shooter" }) {
       </aside>
 
       <main className="main-column">
+        {note && <p className="search-notice" role="status">{note}</p>}
         <section className="game-card" aria-label={currentGame.name + " playable game"}>
           <div className="selected-game-banner">
             <div className={"selected-game-emblem " + currentGame.cover}>{currentGame.icon}</div>
