@@ -1,8 +1,10 @@
 "use client";
 
+import BubbleShooter from "./bubble-shooter";
 import { useEffect, useRef, useState } from "react";
 
 const GAMES = [
+  { id: "bubble-shooter", name: "Bubble Shooter", icon: "◉", category: "Bubbles", desc: "Aim, match colours, and clear the bubble ceiling." },
   { id: "bubble-pop", name: "Bubble Pop", icon: "◉", category: "Puzzle", desc: "Clear connected colour groups of three or more." },
   { id: "memory-match", name: "Memory Match", icon: "▦", category: "Memory", desc: "Reveal tiles and find every matching pair." },
   { id: "number-rush", name: "Number Rush", icon: "↗", category: "Arcade", desc: "Tap numbers from 1 to 12 in the correct order." },
@@ -284,6 +286,8 @@ function GameBoard({ gameId, note, setNote }) {
   const currentMath = MATH_ROUNDS[mathIndex];
   const currentWord = WORD_ROUNDS[wordIndex];
 
+  if (gameId === "bubble-shooter") return <BubbleShooter />;
+
   return (
     <div className="game-stage">
       <div className="stage-topline">
@@ -406,7 +410,7 @@ function GameBoard({ gameId, note, setNote }) {
   );
 }
 
-export default function GamePortal({ initialGame = "bubble-pop" }) {
+export default function GamePortal({ initialGame = "bubble-shooter" }) {
   const [activeGame, setActiveGame] = useState(initialGame);
   const [note, setNote] = useState("Choose a move to begin. Each game has its own rules and scoring.");
   const currentGame = GAMES.find((game) => game.id === activeGame) || GAMES[0];
@@ -419,11 +423,11 @@ export default function GamePortal({ initialGame = "bubble-pop" }) {
   return (
     <div className="portal-layout" id="play">
       <aside className="sidebar-panel game-menu">
-        <div className="panel-heading"><div><span className="eyebrow">PICK YOUR MODE</span><h2>Game library</h2></div><span className="count-pill">10 GAMES</span></div>
+        <div className="panel-heading"><div><span className="eyebrow">PICK YOUR MODE</span><h2>Game library</h2></div><span className="count-pill">11 GAMES</span></div>
         <nav className="game-nav" aria-label="Game menu">
           {GAMES.map((game, index) => (
             <button type="button" key={game.id} onClick={() => selectGame(game.id)} className={"game-nav-item" + (activeGame === game.id ? " game-nav-active" : "")} aria-current={activeGame === game.id ? "page" : undefined}>
-              <span className="game-nav-icon">{game.icon}</span><span className="game-nav-copy"><b>{game.name}</b><small>{game.category}</small></span><span className="nav-index">{String(index + 1).padStart(2, "0")}</span>
+              <span className={"game-nav-icon game-nav-cover cover-" + game.id} aria-hidden="true">{game.id === "bubble-shooter" ? "●" : game.icon}</span><span className="game-nav-copy"><b>{game.name}</b><small>{game.category}</small></span><span className="nav-index">{String(index + 1).padStart(2, "0")}</span>
             </button>
           ))}
         </nav>
