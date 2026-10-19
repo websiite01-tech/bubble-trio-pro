@@ -467,3 +467,116 @@ body:before{position:fixed;content:"";inset:0;z-index:-1;pointer-events:none;bac
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* Three-game, thirty-level system — layout and component styling. */
+.selected-game-banner{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #e7e6f1;background:linear-gradient(100deg,#fff,#f8f6ff)}
+.selected-game-emblem{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;border:1px solid #dfd5fc;border-radius:12px;background:#f0eaff;color:#6f39ea;font-size:22px;font-weight:900}
+.selected-game-emblem.cover-bubble-shooter{background:radial-gradient(circle at 25% 25%,#ff6371 0 7px,transparent 8px),radial-gradient(circle at 72% 30%,#26de65 0 7px,transparent 8px),radial-gradient(circle at 49% 68%,#f6d62d 0 8px,transparent 9px),#e9e4ff}
+.selected-game-emblem.cover-bubble-puzzle{background:radial-gradient(circle at 30% 30%,#fc6580 0 7px,transparent 8px),radial-gradient(circle at 68% 34%,#37ceee 0 7px,transparent 8px),radial-gradient(circle at 50% 70%,#a275f6 0 8px,transparent 9px),#e9e4ff}
+.selected-game-emblem.cover-memory-match{background:linear-gradient(135deg,#e3d8ff,#e2faff);color:#6f39ea}
+.selected-game-copy{min-width:0;flex:1}
+.selected-game-copy .eyebrow{font-size:7px;color:#7d739f}
+.selected-game-copy h2{margin:3px 0 0;font-size:15px;font-weight:900;letter-spacing:-.04em;color:#292251}
+.selected-game-copy p{margin:4px 0 0;font-size:9px;line-height:1.55;color:#75728e}
+.selected-progress{display:flex;flex-shrink:0;flex-direction:column;align-items:center;gap:3px;min-width:61px;padding:7px 8px;border:1px solid #e3dbfb;border-radius:9px;background:#fbf9ff;color:#6b39e4}
+.selected-progress>b{font-size:18px;font-weight:900;line-height:1}
+.selected-progress small{font-size:9px;color:#9290aa}
+.selected-progress>span{font-size:7px;color:#7c7899;white-space:nowrap}
+.level-picker{padding:12px 13px 11px;border-bottom:1px solid #e8e7f1;background:#fcfcff}
+.level-picker-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}
+.level-picker-heading .eyebrow{font-size:7px;color:#7c769e}
+.level-picker-heading h3{margin:3px 0 0;font-size:12px;font-weight:900;color:#2e2855}
+.level-progress-pill{padding:5px 7px;border:1px solid #d8f0e1;border-radius:7px;background:#f0fbf4;color:#187e48;font-size:8px;font-weight:800;white-space:nowrap}
+.level-grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:5px}
+.level-button{display:flex;align-items:center;flex-direction:column;justify-content:center;gap:4px;min-width:0;min-height:45px;padding:4px 2px;border:1px solid #e3e1ef;border-radius:7px;background:#fff;color:#3f396b;cursor:pointer;transition:background .13s,border-color .13s,transform .13s}
+.level-button:hover:not(:disabled){border-color:#a792f6;background:#f6f2ff;transform:translateY(-1px)}
+.level-button>b{font-size:10px;font-weight:900;color:#5d35df}
+.level-button>small{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#797691;font-size:6px}
+.level-button.level-selected{border-color:#7744f1;background:#7542ee;box-shadow:0 2px 8px rgba(107,54,234,.17)}
+.level-button.level-selected>b,.level-button.level-selected>small{color:#fff}
+.level-button.level-locked{border-color:#edecf3;background:#f6f6fa;cursor:not-allowed;opacity:.8}
+.level-button.level-locked>b{font-size:9px;filter:grayscale(1);opacity:.6}
+.level-button.level-locked>small{color:#aaa8bd}
+.level-picker-note{margin:8px 0 0;color:#85839c;font-size:8px;line-height:1.65}
+.game-nav-detail{align-self:flex-start;margin:0 3px 3px;color:#7663be;font-size:7px;font-weight:800;letter-spacing:.04em}
+.sidebar-mini-guide{display:flex;flex-direction:column;gap:8px;margin-top:12px;padding:10px 8px;border:1px solid #e9e5f8;border-radius:8px;background:#fdfbff}
+.sidebar-mini-guide>.eyebrow{margin-bottom:1px;font-size:7px;color:#8780a7}
+.sidebar-mini-guide a{font-size:9px;color:#6b43dc}
+.sidebar-mini-guide a:hover{text-decoration:underline;text-underline-offset:2px}
+.right-game-description{margin:8px 0 0;color:#75738c;font-size:9px;line-height:1.75}
+.mini-faq{padding:12px}
+.mini-faq .eyebrow{font-size:7px;color:#7f78a1}
+.mini-faq h2{margin:6px 0 0;font-size:11px;line-height:1.55;color:#302952}
+.mini-faq p{margin:7px 0 0;font-size:9px;line-height:1.8;color:#75738d}
+.puzzle-stage{padding:14px}
+.puzzle-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-bottom:9px}
+.puzzle-stats>div{display:flex;flex-direction:column;gap:5px;padding:9px;border:1px solid #e8e6f2;border-radius:8px;background:#fbfbff}
+.puzzle-stats small{font-size:7px;font-weight:800;letter-spacing:.06em;color:#85829e}
+.puzzle-stats b{font-size:14px;color:#3b326b;font-weight:900}
+.puzzle-stats b.danger-number{color:#d52a57}
+.score-progress,.memory-progress{height:5px;overflow:hidden;margin-bottom:12px;border-radius:99px;background:#edeaf7}
+.score-progress>span,.memory-progress>span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#7c3aed,#a78bfa);transition:width .25s}
+.pop-board{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:7px;padding:12px;border:1px solid #e5e3f0;border-radius:12px;background:radial-gradient(ellipse at 50% 0,#f3eeff,#eff6ff 80%)}
+.pop-bubble{display:flex;align-items:center;justify-content:center;aspect-ratio:1;min-width:0;padding:2px;border:0;border-radius:50%;background:transparent;cursor:pointer}
+.pop-bubble span{display:block;width:100%;aspect-ratio:1;border:1px solid rgba(255,255,255,.7);border-radius:50%;background:var(--bubble-colour);box-shadow:inset -4px -5px 8px rgba(29,30,83,.18),inset 3px 3px 5px rgba(255,255,255,.42),0 2px 4px rgba(55,54,115,.1);transition:transform .13s,filter .13s}
+.pop-bubble:not(:disabled):hover span{transform:scale(1.1);filter:brightness(1.08)}
+.pop-bubble:disabled{cursor:default}
+.goal-hint{display:flex;align-items:flex-start;gap:9px;margin-top:11px;padding:10px;border:1px solid #e3dcfa;border-radius:9px;background:#faf8ff}
+.hint-star{color:#7542ed;font-size:14px}
+.goal-hint p{display:flex;flex-direction:column;gap:4px;margin:0}
+.goal-hint b{font-size:9px;color:#493579}
+.goal-hint p span{font-size:9px;line-height:1.65;color:#77728f}
+.level-result{display:flex;flex-direction:column;gap:7px;margin-top:12px;padding:13px;border:1px solid #cdeed9;border-radius:10px;background:#f1fcf5}
+.level-result>b{font-size:12px;font-weight:900;color:#17844a}
+.level-result>span{color:#617f6c;font-size:9px;line-height:1.7}
+.level-result>div{margin-top:4px}
+.level-result.result-lose{border-color:#fad5df;background:#fff5f7}
+.level-result.result-lose>b{color:#c12e59}
+.bubble-count-note{margin:8px 0 0;color:#8986a0;font-size:8px}
+.memory-board{display:grid;grid-template-columns:repeat(var(--memory-columns,4),minmax(0,1fr));gap:7px;padding:12px;border:1px solid #e5e3f0;border-radius:12px;background:radial-gradient(ellipse at 50% 0,#f3eeff,#eff6ff 80%)}
+.memory-tile{display:flex;align-items:center;justify-content:center;aspect-ratio:1.12;min-width:0;border:1px solid #d9d0fa;border-radius:9px;background:linear-gradient(145deg,#7d5de0,#5832bc);color:white;font-size:clamp(12px,2.1vw,23px);font-weight:900;box-shadow:0 2px 5px rgba(61,40,129,.08);cursor:pointer;transition:transform .12s,background .12s}
+.memory-tile:not(:disabled):hover{transform:translateY(-1px)}
+.memory-tile.memory-face-up{border-color:#d8eaf9;background:linear-gradient(140deg,#f2f8ff,#e4edff);color:#454080}
+.memory-tile.memory-paired{border-color:#bce9cf;background:linear-gradient(140deg,#e8faef,#d6f7e1);color:#168047}
+.faq-library{margin-top:24px;padding:clamp(20px,3vw,34px);border:1px solid #dfdeee;border-radius:12px;background:white}
+.faq-library-header{max-width:760px;margin-bottom:17px}
+.faq-library h2{margin:5px 0 0;color:#292350;font-size:clamp(21px,2.7vw,30px);font-weight:900;letter-spacing:-.04em}
+.faq-library-header p{margin:8px 0 0;color:#77748e;font-size:10px;line-height:1.8}
+.faq-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 15px}
+.faq-item{padding:12px;border:1px solid #e8e6f1;border-radius:9px;background:#fdfdff}
+.faq-item h3{margin:0;color:#332d59;font-size:11px;font-weight:900;line-height:1.6}
+.faq-item p{margin:6px 0 0;color:#77748e;font-size:9px;line-height:1.85}
+.content-edit-note{display:flex;flex-direction:column;gap:7px;margin-top:18px;padding:13px;border:1px solid #e0daf8;border-radius:9px;background:#faf8ff}
+.content-edit-note b{font-size:10px;color:#44356e}
+.content-edit-note p{margin:0;font-size:9px;line-height:1.8;color:#77718d}
+.content-edit-note code{padding:1px 4px;border-radius:4px;background:#eee9ff;color:#6437d4;font-size:9px}
+@media(max-width:1200px){.game-nav-detail{font-size:6px}.level-grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+@media(max-width:850px){.level-grid{grid-template-columns:repeat(10,minmax(0,1fr))}.game-nav{grid-template-columns:repeat(3,minmax(0,1fr))}.game-nav-detail{display:block}.right-column .ad-slot-side{min-height:180px}}
+@media(max-width:560px){
+  .selected-game-banner{gap:8px;padding:10px}
+  .selected-game-emblem{width:37px;height:37px;border-radius:10px;font-size:18px}
+  .selected-game-copy h2{font-size:13px}
+  .selected-game-copy p{font-size:8px}
+  .selected-progress{min-width:50px;padding:6px}
+  .selected-progress>b{font-size:15px}
+  .selected-progress>span{font-size:6px}
+  .level-picker{padding:10px 8px}
+  .level-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
+  .level-button{min-height:42px}
+  .level-button>b{font-size:10px}
+  .level-button>small{font-size:6px}
+  .puzzle-stage{padding:10px}
+  .puzzle-stats{gap:5px}
+  .puzzle-stats>div{padding:7px}
+  .puzzle-stats small{font-size:6px}
+  .puzzle-stats b{font-size:12px}
+  .pop-board,.memory-board{gap:5px;padding:8px}
+  .memory-board{grid-template-columns:repeat(var(--memory-columns,4),minmax(0,1fr))}
+  .memory-tile{border-radius:6px;font-size:clamp(11px,4vw,19px)}
+  .goal-hint{padding:8px}
+  .level-result{padding:10px}
+  .faq-library{margin-top:18px;padding:16px 11px}
+  .faq-items{grid-template-columns:1fr;gap:8px}
+  .faq-item{padding:10px}
+}
