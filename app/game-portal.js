@@ -114,10 +114,11 @@ function BubblePopPuzzle({ level, onComplete, onNextLevel }) {
     const group = [];
     while (queue.length) {
       const [r, c] = queue.pop();
+      if (r < 0 || r >= 8 || c < 0 || c >= 8) continue;
       const key = r * 8 + c;
       if (seen.has(key)) continue;
       seen.add(key);
-      if (r < 0 || r >= 8 || c < 0 || c >= 8 || board[key] !== colour) continue;
+      if (board[key] !== colour) continue;
       group.push(key);
       queue.push([r - 1, c], [r + 1, c], [r, c - 1], [r, c + 1]);
     }
