@@ -1,7 +1,6 @@
 import "./globals.css";
 
 export const metadata = {
-  metadataBase: new URL("https://example.com"),
   title: {
     default: "Bubble Trio Pro — Free Online Mini Games",
     template: "%s | Bubble Trio Pro"
