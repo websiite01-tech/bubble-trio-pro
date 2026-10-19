@@ -121,10 +121,7 @@ export default function HomePage() {
             </section>
           ))}
         </div>
-        <div className="content-edit-note">
-          <b>For the site owner: edit content without rebuilding the games from scratch</b>
-          <p>Descriptions, all 30 level names and hints, objectives, difficulty values, FAQs, and written game guides are centrally maintained in <code>app/game-content.js</code>. Homepage article text is in <code>app/page.js</code>; visual styles are in <code>app/globals.css</code>. Ask for a text or level change and it can be committed directly to the connected GitHub repository—no copy-pasting code is needed.</p>
-        </div>
+
       </section>
 
       <section className="closing-cta"><div><span className="eyebrow">READY FOR ANOTHER ROUND?</span><h2>Aim. Match. Clear.</h2><p>Start a new board or choose another mini-game from the library.</p></div><a className="primary-button" href="#play">Back to the game <span>↑</span></a></section>
