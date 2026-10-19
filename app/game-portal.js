@@ -413,7 +413,31 @@ function GameBoard({ gameId, note, setNote }) {
 export default function GamePortal({ initialGame = "bubble-shooter" }) {
   const [activeGame, setActiveGame] = useState(initialGame);
   const [note, setNote] = useState("Choose a move to begin. Each game has its own rules and scoring.");
+  const [filter, setFilter] = useState("all");
+  const [query, setQuery] = useState("");
   const currentGame = GAMES.find((game) => game.id === activeGame) || GAMES[0];
+
+  useEffect(() => {
+    const onFilter = (event) => setFilter(event.detail || "all");
+    const onSearch = (event) => setQuery((event.detail || "").toLowerCase());
+    window.addEventListener("bubble-portal-filter", onFilter);
+    window.addEventListener("bubble-portal-search", onSearch);
+    return () => {
+      window.removeEventListener("bubble-portal-filter", onFilter);
+      window.removeEventListener("bubble-portal-search", onSearch);
+    };
+  }, []);
+
+  const visibleGames = GAMES.filter((game) => {
+    const filterMatch = filter === "all"
+      || (filter === "bubble" && ["bubble-shooter", "bubble-pop"].includes(game.id))
+      || (filter === "puzzle" && ["puzzle", "memory", "brain", "focus", "strategy"].includes(game.category.toLowerCase()))
+      || (filter === "word" && ["word", "brain"].includes(game.category.toLowerCase()))
+      || (filter === "board" && ["strategy", "classic", "memory"].includes(game.category.toLowerCase()))
+      || (filter === "arcade" && ["arcade", "reflex", "classic"].includes(game.category.toLowerCase()));
+    const searchMatch = !query || (game.name + " " + game.desc + " " + game.category).toLowerCase().includes(query);
+    return filterMatch && searchMatch;
+  });
 
   function selectGame(id) {
     setActiveGame(id);
@@ -423,20 +447,21 @@ export default function GamePortal({ initialGame = "bubble-shooter" }) {
   return (
     <div className="portal-layout" id="play">
       <aside className="sidebar-panel game-menu">
-        <div className="panel-heading"><div><span className="eyebrow">PICK YOUR MODE</span><h2>Game library</h2></div><span className="count-pill">11 GAMES</span></div>
+        <div className="panel-heading" id="game-library"><div><span className="eyebrow">PICK YOUR MODE</span><h2>Game library</h2></div><span className="count-pill">{visibleGames.length} GAMES</span></div>
         <nav className="game-nav" aria-label="Game menu">
-          {GAMES.map((game, index) => (
+          {visibleGames.map((game, index) => (
             <button type="button" key={game.id} onClick={() => selectGame(game.id)} className={"game-nav-item" + (activeGame === game.id ? " game-nav-active" : "")} aria-current={activeGame === game.id ? "page" : undefined}>
               <span className={"game-nav-icon game-nav-cover cover-" + game.id} aria-hidden="true">{game.id === "bubble-shooter" ? "●" : game.icon}</span><span className="game-nav-copy"><b>{game.name}</b><small>{game.category}</small></span><span className="nav-index">{String(index + 1).padStart(2, "0")}</span>
             </button>
           ))}
+          {visibleGames.length === 0 && <p className="empty-games">No games match that search. Try another name or choose All Games.</p>}
         </nav>
         <div className="pro-tip"><span className="tip-mark">✦</span><div><b>Small moves, smart plays</b><p>Take a second to read the board. Practice beats random clicks.</p></div></div>
       </aside>
 
       <main className="main-column">
         <section className="game-card" aria-label="Selected game">
-          <div className="game-card-header"><div className="game-title-wrap"><span className="game-title-icon">{currentGame.icon}</span><div><span className="eyebrow">NOW PLAYING</span><h2>{currentGame.name}</h2><p>{currentGame.desc}</p></div></div><span className="live-pill"><i /> PLAYABLE</span></div>
+          {activeGame !== "bubble-shooter" && <div className="game-card-header"><div className="game-title-wrap"><span className="game-title-icon">{currentGame.icon}</span><div><span className="eyebrow">NOW PLAYING</span><h2>{currentGame.name}</h2><p>{currentGame.desc}</p></div></div><span className="live-pill"><i /> PLAYABLE</span></div>}
           <GameBoard key={activeGame} gameId={activeGame} note={note} setNote={setNote} />
           <div className="game-card-footer"><span>◇ Original browser mini-game</span><span>No account · No download</span></div>
         </section>
