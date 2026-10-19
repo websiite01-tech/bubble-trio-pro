@@ -296,10 +296,14 @@ function drawGame(ctx, state) {
   ctx.font = "700 11px Arial";
   ctx.fillText("SHOOTER", 794, 379);
 
-  ctx.fillStyle = "#5055a4";
-  ctx.font = "600 10px Arial";
+  ctx.fillStyle = "#33398f";
+  ctx.font = "900 13px Arial";
   ctx.textAlign = "center";
-  ctx.fillText("AIM • MATCH 3+ • CLEAR", 794, 425);
+  ctx.fillText("LEVEL " + String(state.level.level || 1).padStart(2, "0") + " / 30", 795, 405);
+  ctx.font = "800 10px Arial";
+  ctx.fillText("CLEAR EVERY BUBBLE", 795, 425);
+  ctx.font = "700 9px Arial";
+  ctx.fillText("Misses: " + state.misses + " / " + (state.level.missLimit || 5), 795, 449);
 
   if (state.help) {
     ctx.fillStyle = "rgba(41,43,116,.78)";
@@ -426,7 +430,7 @@ function attachBubble(state) {
     state.message = "Great shot! +" + (matches.length * 10 + Math.max(0, matches.length - 3) * 5 + fallen * 10) + " points.";
   } else {
     state.misses += 1;
-    state.message = state.misses >= 5 ? "The bubbles are moving down. Find a match soon!" : "Try to connect three or more matching bubbles.";
+    state.message = state.misses >= (state.level.missLimit || 5) ? "The bubbles are moving down. Find a match soon!" : "Try to connect three or more matching bubbles.";
   }
 
   state.shots += 1;
@@ -440,7 +444,7 @@ function attachBubble(state) {
     state.message = "You cleared the board!";
   }
 
-  if (!state.gameOver && state.misses >= 5) {
+  if (!state.gameOver && state.misses >= (state.level.missLimit || 5)) {
     state.grid.pop();
     state.grid.unshift(Array.from({ length: COLS }, () => randomColour()));
     state.misses = 0;
@@ -460,9 +464,12 @@ function attachBubble(state) {
   }
 }
 
-export default function BubbleShooter() {
+export default function BubbleShooter({ level = { level: 1, rows: 9, colours: 6, pattern: "full", missLimit: 6 }, onLevelComplete, onNextLevel }) {
   const canvasRef = useRef(null);
   const stateRef = useRef(null);
+  const [levelCompleted, setLevelCompleted] = useState(false);
+  const completeCallbackRef = useRef(onLevelComplete);
+  completeCallbackRef.current = onLevelComplete;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -470,7 +477,7 @@ export default function BubbleShooter() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return undefined;
 
-    stateRef.current = freshGame();
+    stateRef.current = freshGame(level);
     let animationFrame = 0;
     let disposed = false;
 
@@ -504,6 +511,11 @@ export default function BubbleShooter() {
         }
         if (collision) attachBubble(state);
       }
+      if (state.won && !state.completionSent) {
+        state.completionSent = true;
+        setLevelCompleted(true);
+        if (completeCallbackRef.current) completeCallbackRef.current(level.level);
+      }
       drawGame(ctx, state);
       animationFrame = window.requestAnimationFrame(render);
     }
@@ -529,7 +541,8 @@ export default function BubbleShooter() {
       state.aim = point;
       if (point.x > CONTROL_X) {
         if (distance(point.x, point.y, 760, 99) < 39) {
-          stateRef.current = freshGame();
+          stateRef.current = freshGame(level);
+          setLevelCompleted(false);
           return;
         }
         if (distance(point.x, point.y, 836, 152) < 37) {
@@ -576,7 +589,8 @@ export default function BubbleShooter() {
   }, []);
 
   function restart() {
-    stateRef.current = freshGame();
+    stateRef.current = freshGame(level);
+    setLevelCompleted(false);
   }
 
   function toggleHelp() {
