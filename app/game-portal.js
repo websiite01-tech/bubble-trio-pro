@@ -315,10 +315,12 @@ export default function GamePortal({ initialGame = "bubble-shooter" }) {
   const [activeGame, setActiveGame] = useState(initialGame);
   const [selectedLevels, setSelectedLevels] = useState({ ...DEFAULT_PROGRESS });
   const [progress, setProgress] = useState({ ...DEFAULT_PROGRESS });
+  const [progressReady, setProgressReady] = useState(false);
   const [note, setNote] = useState("Choose a game and work your way through its 30 levels.");
 
   useEffect(() => {
     setProgress(readProgress());
+    setProgressReady(true);
     const onFilter = (event) => {
       const value = event.detail || "all";
       const map = { "bubble-shooter": "bubble-shooter", "bubble-puzzle": "bubble-puzzle", "memory-match": "memory-match" };
@@ -339,8 +341,9 @@ export default function GamePortal({ initialGame = "bubble-shooter" }) {
   }, []);
 
   useEffect(() => {
+    if (!progressReady) return;
     try { window.localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress)); } catch {}
-  }, [progress]);
+  }, [progress, progressReady]);
 
   const currentGame = GAMES.find((game) => game.id === activeGame) || GAMES[0];
   const selectedLevel = selectedLevels[currentGame.id] || 1;
