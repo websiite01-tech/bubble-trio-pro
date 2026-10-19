@@ -24,8 +24,8 @@ const SHOOT_X = 350;
 const SHOOT_Y = 615;
 const CONTROL_X = 690;
 
-function randomColour() {
-  return Math.floor(Math.random() * COLORS.length);
+function randomColour(limit = COLORS.length) {
+  return Math.floor(Math.random() * Math.max(1, Math.min(COLORS.length, limit)));
 }
 
 function playTone(frequency = 440, duration = 0.07) {
@@ -49,24 +49,34 @@ function playTone(frequency = 440, duration = 0.07) {
   }
 }
 
-function makeGrid() {
+function makeGrid(level = { rows: 9, colours: 6, pattern: "full" }) {
   const grid = Array.from({ length: MAX_ROWS }, () => Array(COLS).fill(null));
-  for (let row = 0; row < 9; row += 1) {
+  const rows = Math.max(4, Math.min(MAX_ROWS - 1, level.rows || 9));
+  for (let row = 0; row < rows; row += 1) {
     for (let col = 0; col < COLS; col += 1) {
-      grid[row][col] = randomColour();
+      let fill = true;
+      if (level.pattern === "wings" && row > 2 && col >= 5 && col <= 10) fill = false;
+      if (level.pattern === "valley" && row > Math.floor(rows / 2) && col >= 5 && col <= 10) fill = false;
+      if (level.pattern === "islands" && row > 1 && col % 5 === 2) fill = false;
+      if (level.pattern === "arch" && row > 1 && col >= 3 && col <= 12 && row < rows - 2) fill = (col < 5 || col > 10 || row < 4);
+      if (level.pattern === "cross" && row > 1 && col > 2 && col < 13 && Math.abs(col - 7.5) > 2 && Math.abs(row - rows / 2) > 1) fill = false;
+      if (fill) grid[row][col] = randomColour(level.colours || 6);
     }
   }
   return grid;
 }
 
-function freshGame() {
+function freshGame(level = { level: 1, rows: 9, colours: 6, pattern: "full", missLimit: 6 }) {
+  const colourCount = level.colours || 6;
   return {
-    grid: makeGrid(),
+    level,
+    completionSent: false,
+    grid: makeGrid(level),
     score: 0,
     shots: 0,
     misses: 0,
-    colour: randomColour(),
-    next: Array.from({ length: 5 }, randomColour),
+    colour: randomColour(colourCount),
+    next: Array.from({ length: 5 }, () => randomColour(colourCount)),
     projectile: null,
     aim: { x: SHOOT_X, y: 155 },
     gameOver: false,
@@ -422,7 +432,7 @@ function attachBubble(state) {
   state.shots += 1;
   state.projectile = null;
   state.colour = state.next.shift();
-  state.next.push(randomColour());
+  state.next.push(randomColour(state.level.colours || COLORS.length));
 
   if (state.grid.every((row) => row.every((colour) => colour === null))) {
     state.gameOver = true;
