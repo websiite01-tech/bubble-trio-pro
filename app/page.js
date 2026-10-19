@@ -1,4 +1,5 @@
 import GamePortal from "./game-portal";
+import { PLAYER_FAQS } from "./game-content";
 
 export const metadata = {
   title: "Bubble Shooter — Play Free Online | Bubble Trio Pro",
@@ -77,7 +78,7 @@ export default function HomePage() {
             <p>Every unmatched shot takes up space. Favour moves that make a match, remove a supporting group, or open a useful angle for the next colour. If the board becomes crowded, prioritise safe, larger clears over speculative shots. You can restart at any time to practise a new approach.</p>
           </section>
 
-          <section id="faqs">
+          <section id="faq-basics">
             <span className="article-number">05 — FREQUENTLY ASKED QUESTIONS</span>
             <h3>Bubble Shooter FAQs</h3>
             <h4>Is Bubble Shooter free to play?</h4>
@@ -104,6 +105,27 @@ export default function HomePage() {
         </div>
         <div className="article-note"><span>✦</span><p><b>Make every shot count.</b> Choose an angle, aim for a connected group, and look for the bubbles that will fall after a successful clear. The best shot is often the one that creates a better board for your next move.</p></div>
       </article>
+
+ 
+      <section className="faq-library" id="faq">
+        <div className="faq-library-header">
+          <span className="eyebrow">PLAYER SUPPORT CENTRE</span>
+          <h2>Common questions, clear answers</h2>
+          <p>Answers about game rules, level unlocks, scores, browser progress, mobile play, and what the site does or does not currently offer.</p>
+        </div>
+        <div className="faq-items">
+          {PLAYER_FAQS.map((item, index) => (
+            <section className="faq-item" key={item.question}>
+              <h3>{String(index + 1).padStart(2, "0")}. {item.question}</h3>
+              <p>{item.answer}</p>
+            </section>
+          ))}
+        </div>
+        <div className="content-edit-note">
+          <b>For the site owner: edit content without rebuilding the games from scratch</b>
+          <p>Descriptions, all 30 level names and hints, objectives, difficulty values, FAQs, and written game guides are centrally maintained in <code>app/game-content.js</code>. Homepage article text is in <code>app/page.js</code>; visual styles are in <code>app/globals.css</code>. Ask for a text or level change and it can be committed directly to the connected GitHub repository—no copy-pasting code is needed.</p>
+        </div>
+      </section>
 
       <section className="closing-cta"><div><span className="eyebrow">READY FOR ANOTHER ROUND?</span><h2>Aim. Match. Clear.</h2><p>Start a new board or choose another mini-game from the library.</p></div><a className="primary-button" href="#play">Back to the game <span>↑</span></a></section>
     </>
