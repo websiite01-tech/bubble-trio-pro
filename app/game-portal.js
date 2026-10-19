@@ -22,7 +22,7 @@ function readProgress() {
     const saved = JSON.parse(window.localStorage.getItem(PROGRESS_KEY) || "{}");
     return Object.fromEntries(GAMES.map((game) => {
       const raw = Number(saved[game.id]);
-      return [game.id, Number.isFinite(raw) ? Math.max(1, Math.min(30, raw)) : 1];
+      return [game.id, Number.isFinite(raw) ? Math.max(1, Math.min(31, raw)) : 1];
     }));
   } catch {
     return DEFAULT_PROGRESS;
@@ -188,7 +188,7 @@ function BubblePopPuzzle({ level, onComplete, onNextLevel }) {
       </div>
       <div className="goal-hint"><span className="hint-star">✦</span><p><b>Level hint</b><span>{level.hint}</span></p></div>
       <p className="stage-instruction">{message}</p>
-      {status !== "playing" && <div className={"level-result " + (status === "won" ? "result-win" : "result-lose")}><b>{status === "won" ? "✦ LEVEL CLEARED" : "↻ TRY AGAIN"}</b><span>{status === "won" ? "Level " + level.level + " is complete. The next challenge is now unlocked." : "You can replay this level as many times as you need."}</span><div>{status === "won" ? <button type="button" className="primary-button" onClick={onNextLevel}>Next level →</button> : <button type="button" className="primary-button" onClick={restart}>Retry level ↻</button>}</div></div>}
+      {status !== "playing" && <div className={"level-result " + (status === "won" ? "result-win" : "result-lose")}><b>{status === "won" ? "✦ LEVEL CLEARED" : "↻ TRY AGAIN"}</b><span>{status === "won" ? "Level " + level.level + " is complete. The next challenge is now unlocked." : "You can replay this level as many times as you need."}</span><div>{status === "won" ? <button type="button" className="primary-button" onClick={level.level === 30 ? restart : onNextLevel}>{level.level === 30 ? "Replay final level ↻" : "Next level →"}</button> : <button type="button" className="primary-button" onClick={restart}>Retry level ↻</button>}</div></div>}
       {lastCleared > 0 && <p className="bubble-count-note">Last group cleared: {lastCleared} bubbles · Large groups earn extra points.</p>}
     </div>
   );
@@ -360,7 +360,7 @@ export default function GamePortal({ initialGame = "bubble-shooter" }) {
 
   function completeLevel(levelNumber) {
     setProgress((previous) => {
-      const nextUnlocked = Math.min(30, Math.max(previous[currentGame.id] || 1, levelNumber + 1));
+      const nextUnlocked = Math.min(31, Math.max(previous[currentGame.id] || 1, levelNumber + 1));
       return { ...previous, [currentGame.id]: nextUnlocked };
     });
   }
