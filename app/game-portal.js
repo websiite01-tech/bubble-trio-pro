@@ -37,7 +37,7 @@ const MATH_ROUNDS = [
 const WORD_ROUNDS = [
   { scrambled: "ZLZUEP", answer: "PUZZLE", options: ["PUZZLE", "PLANET", "POCKET"] },
   { scrambled: "NRIAB", answer: "BRAIN", options: ["BRAIN", "BRAVE", "BRICK"] },
-  { scrambled: "YALPR", answer: "PLAY", options: ["PLAYS", "PLAY", "APPLY"] }
+  { scrambled: "YPLPA", answer: "APPLY", options: ["APPLY", "APPLE", "PAPPY"] }
 ];
 
 function makeBubbles() {
@@ -188,7 +188,7 @@ function GameBoard({ gameId, note, setNote }) {
     const winner = getWinner(next);
     if (winner === "draw") setNote("It's a draw. Start another round to try again.");
     else if (winner) setNote(winner + " wins! Well played.");
-    else setNote(next.filter(Boolean).length % 2 === 0 ? "O's turn." : "X's turn.");
+    else setNote(next.filter(Boolean).length % 2 === 1 ? "O's turn." : "X's turn.");
   }
 
   function answerMath(value) {
