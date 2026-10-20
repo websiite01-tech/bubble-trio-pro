@@ -19,6 +19,19 @@ All of this editable configuration is in app/game-content.js.
 
 ## Where to edit what
 
+| Creator / site setting | File |
+| --- | --- |
+| Public contact email (hidden until populated) | app/site-config.js → contactEmail |
+| Optional public name | app/site-config.js → creatorName |
+| Student role and university label | app/site-config.js → creatorRole, university |
+| Policy update date and site URL | app/site-config.js → policyLastUpdated, siteUrl |
+| Advertising disclosure | app/advertising-disclosure/page.js |
+| Content and editorial standards | app/content-standards/page.js |
+| Disclaimer | app/disclaimer/page.js |
+| Accessibility statement | app/accessibility/page.js |
+| Corrections and updates policy | app/corrections/page.js |
+
+
 | What you want to change | File |
 | --- | --- |
 | Game name, summary, category, instruction list | app/game-content.js → GAMES |
@@ -31,6 +44,9 @@ All of this editable configuration is in app/game-content.js.
 | Colours, spacing, game cards and mobile layout | app/globals.css |
 | Header and game navigation labels | app/site-header.js |
 | Privacy disclosures | app/privacy/page.js |
+| Cookie and browser storage explanation | app/cookie-policy/page.js |
+| About/student project profile | app/about/page.js |
+| Contact page content | app/contact/page.js |
 | Cookie explanation | app/cookie-policy/page.js |
 | Usage terms | app/terms/page.js |
 | Pre-launch advertising checklist | ADSENSE_READINESS.md |
