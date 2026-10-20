@@ -15,6 +15,7 @@ This is a practical owner checklist, not a promise or guarantee of Google AdSens
 - [x] Empty ad placeholders are labelled “Advertisement” and have reserved minimum heights; this build does not load live AdSense ad requests.
 - [x] No fabricated publisher ID or sample ads.txt record.
 - [ ] Owner must confirm that “LU University” is the preferred accurate public label before submitting the site. The About page expressly disclaims official university endorsement.
+- [ ] Strongly consider purchasing and connecting a custom domain before applying. Google's sign-up instructions say the submitted URL must be a standard domain and that subdomains are only accepted through qualifying host-partner flows such as Blogger. A normal Vercel preview/hosting subdomain may not be accepted in AdSense; verify current account requirements before submission. See https://support.google.com/adsense/answer/2784438 and https://support.google.com/adsense/answer/91205.
 - [ ] Owner should optionally add a public contact email to the contactEmail setting in app/site-config.js. Use an address you are comfortable publishing openly; never add a private email unknowingly.
 - [ ] Test all three games from a clean browser profile, including restarting, level completion, unlocking the next level, switching games, and refreshing to confirm that local level progress persists.
 - [ ] Check desktop, tablet, and mobile layouts; verify that ad placeholders, navigation, game controls, and article content do not overlap.
