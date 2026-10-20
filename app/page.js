@@ -7,7 +7,7 @@ export const metadata = {
   keywords: ["bubble shooter", "free bubble shooter online", "bubble pop game", "match three bubbles", "online arcade puzzle"],
   openGraph: {
     title: "Bubble Shooter — Play Free Online | Bubble Trio Pro",
-    description: "An original browser-based Bubble Shooter with aiming, wall bounces, scoring, a next-bubble queue, and a helpful player guide.",
+    description: "Three original browser games, 90 level challenges, detailed play guides, family information and useful puzzle tips from Bubble Trio Pro.",
     type: "website"
   }
 };
