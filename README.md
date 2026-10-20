@@ -7,7 +7,7 @@ A responsive classic-style Bubble Shooter portal built with Next.js App Router, 
 - Exactly three original browser games, each with 30 levels: Bubble Shooter, Bubble Pop Puzzle, and Memory Match (90 level challenges in total).
 - Responsive three-column desktop layout, stacked mobile layout, keyboard-friendly buttons, focus states, and reduced-motion support.
 - A substantial player guide with game rules, per-game strategy, scoring explanations, hints, and 12 frequently asked questions with answers.
-- About, privacy, cookie policy, terms of use, and contact information pages.
+- About, Privacy Policy, Cookie Policy, Terms of Use, Advertising Disclosure, Disclaimer, Content and Editorial Standards, Corrections and Updates Policy, Accessibility Statement, and Contact pages.
 - Clearly labelled, reserved ad spaces with stable minimum heights. They are placeholders, not active AdSense units.
 - SEO metadata and a site icon.
 
@@ -35,6 +35,9 @@ Most site styling is in app/globals.css. The final override block is named Bubbl
 
 ## Editing game content
 
+Site owner and contact settings are in `app/site-config.js`. Edit `contactEmail` to publish an email link on the Contact page (leave it blank until you want the address public), `creatorName` to optionally display your name, and `university` / `creatorRole` to correct the public profile. These values are part of the public repository, so never put passwords, keys, tokens or confidential data there.
+
+
 For a step-by-step owner reference, see `OWNER_EDIT_GUIDE.md`.
 
 Open `app/game-content.js` to edit the three games' names, descriptions, the 30 level names/hints/board patterns/difficulty values for each game, Bubble Pop score targets and move budgets, Memory Match pair counts and themes, the player instructions, and the FAQ answers. The homepage long-form guide is maintained in `app/page.js`. Styling and spacing are in `app/globals.css`; Bubble Shooter mechanics live in `app/bubble-shooter.js`; the two other game engines and level progression are in `app/game-portal.js`.
@@ -43,7 +46,7 @@ Edits to `app/game-content.js` are intended to be safe content configuration cha
 
 ## AdSense readiness
 
-No live ad code or publisher ID is included. Read ADSENSE_READINESS.md before applying. After the site and publisher are eligible, configure real ad units separately, preserve layout space, keep ads away from game controls and navigation, update the actual privacy disclosures, and configure any consent management that is applicable. A compliant-looking template cannot guarantee AdSense approval.
+No live ad code or publisher ID is included. Read `ADSENSE_READINESS.md` before applying. Review every policy page against the deployed implementation. After the site and publisher are eligible, configure real ad units separately, preserve layout space, keep ads away from game controls and navigation, update the actual privacy disclosures, and configure any consent management that is applicable. A compliant-looking template cannot guarantee AdSense approval.
 
 ## Notes
 
