@@ -13,7 +13,7 @@ export default function ContactPage() {
       <p className="page-lead">A useful report helps me understand what a visitor experienced and what should be improved. You can use this page to share a game bug, report a confusing instruction, suggest an accessibility improvement, or ask a question about the project.</p>
 
       <h2>About the person behind the project</h2>
-      <p>Bubble Trio Pro is an independent learning and training project built by a student at LU University. The site is being developed as a practical exercise in browser-game programming, interface design, web publishing, documentation, and maintaining a small public project. Feedback is welcome because testing with real visitors can reveal issues that are easy to miss during development.</p>
+      <p>Bubble Trio Pro is an independent learning and training project built by a {siteConfig.creatorRole} at {siteConfig.university}. The site is being developed as a practical exercise in browser-game programming, interface design, web publishing, documentation, and maintaining a small public project. Feedback is welcome because testing with real visitors can reveal issues that are easy to miss during development.</p>
       <p>The project is not an official university website and does not claim university endorsement. Please use the contact routes for the website itself rather than treating this page as a university office or official student-service channel.</p>
 
       <h2>Report a game bug</h2>
