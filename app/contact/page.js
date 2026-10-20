@@ -37,6 +37,12 @@ export default function ContactPage() {
       <h2>Advertising and partnership questions</h2>
       <p>The page layouts currently include reserved advertisement areas, but they do not load live Google AdSense ads. The website has not claimed approval from Google. For context, read the <a className="inline-link" href="/advertising-disclosure">Advertising Disclosure</a> and the site's <a className="inline-link" href="/content-standards">Content and Editorial Standards</a>. Any future sponsorship, ad vendor, or analytics integration must be described accurately after it has been configured.</p>
 
+      <h2>Accessibility reports</h2>
+      <p>If you have trouble with the keyboard controls, visible focus, text contrast, zoom, touch targets, or the canvas-based Bubble Shooter board, please describe the page and the assistive technology or input method you use. The site's <a className="inline-link" href="/accessibility">Accessibility Statement</a> documents the current approach and known limitations.</p>
+
+      <h2>Corrections and factual updates</h2>
+      <p>If a policy, level hint, scoring rule, or feature description no longer matches the live site, report the exact URL and the sentence or game behaviour that needs review. The <a className="inline-link" href="/corrections">Corrections and Updates Policy</a> explains how reports are assessed and how published fixes should be checked.</p>
+
       <h2>Response expectations</h2>
       <p>This is a student-managed learning project, not a staffed commercial support desk. I may not respond immediately, and I cannot promise a fixed response time. Clear, relevant reports have the best chance of helping me reproduce a problem and decide on a correction. Abusive messages, spam, requests to manipulate advertising, or messages that expose private information may not receive a response.</p>
 
