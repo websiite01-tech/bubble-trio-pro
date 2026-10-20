@@ -6,8 +6,9 @@ A responsive classic-style Bubble Shooter portal built with Next.js App Router, 
 
 - Exactly three original browser games, each with 30 levels: Bubble Shooter, Bubble Pop Puzzle, and Memory Match (90 level challenges in total).
 - Responsive three-column desktop layout, stacked mobile layout, keyboard-friendly buttons, focus states, and reduced-motion support.
-- A substantial player guide with game rules, per-game strategy, scoring explanations, hints, and 12 frequently asked questions with answers.
-- About, Privacy Policy, Cookie Policy, Terms of Use, Advertising Disclosure, Disclaimer, Content and Editorial Standards, Corrections and Updates Policy, Accessibility Statement, and Contact pages.
+- Detailed homepage guides for all three games, worked scoring examples, level progression explanations, family-play guidance, and 12 frequently asked questions with answers.
+- A dedicated Family Play Guide with all game instructions, privacy notes, sensible-supervision guidance, and common questions.
+- About Sonu, Privacy Policy, Cookie Policy, Terms of Use, Advertising Disclosure, Disclaimer, Content and Editorial Standards, Corrections and Updates Policy, Accessibility Statement, Family Play Guide, and Contact pages.
 - Clearly labelled, reserved ad spaces with stable minimum heights. They are placeholders, not active AdSense units.
 - SEO metadata and a site icon.
 
@@ -52,4 +53,4 @@ No live ad code or publisher ID is included. Read `ADSENSE_READINESS.md` before 
 
 - Game scores are client-side and reset with a new round; unlocked level progression is saved in local browser storage.
 - No logins, payment flows, third-party game embeds, or site-specific analytics are implemented.
-- The public GitHub issue tracker is used for feedback until a private contact channel is configured.
+- The public contact email is editable in `app/site-config.js` and currently set to `websiite01@gmail.com`. A public GitHub issue tracker is also available for non-sensitive bug reports; issue posts are visible to others.
