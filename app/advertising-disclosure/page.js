@@ -34,11 +34,15 @@ export default function AdvertisingDisclosurePage() {
       <p>Google states that publishers serving personalised ads to users in the European Economic Area, the United Kingdom, or Switzerland must use a Google-certified consent management platform integrated with the IAB Transparency and Consent Framework. The owner must confirm current rules and configure a suitable solution if relevant. A policy page by itself does not collect consent. See <a className="inline-link" href="https://support.google.com/adsense/answer/13554116" target="_blank" rel="noreferrer">Google's publisher consent requirements</a>.</p>
       <p>Visitors can review Google's available advertising personalisation settings at <a className="inline-link" href="https://adssettings.google.com/" target="_blank" rel="noreferrer">Google Ads Settings</a>. Choices and applicability depend on the service, region, device, and configuration.</p>
 
-      <h2>6. The site owner's responsibility</h2>
+      <h2>6. Child-directed content and family audiences</h2>
+      <p>The creator hopes children and families will enjoy the games. Before an advertising integration is enabled, the owner must determine whether the website or a particular section is child-directed under the applicable rules. If a Google advertising service is used on a site or section covered by COPPA, the publisher must notify Google by an applicable supported method or mark the site/ad request for child-directed treatment. Google does not permit interest-based advertising based on the activity of users known to be under 13 or on sites directed to children under 13. The owner should check the current Google requirements and correctly configure ad treatment before the first ad request. This is not something a disclosure paragraph can configure on its own.</p>
+      <p>Until that assessment, the advertising placeholders remain empty. The site must not imply that child-directed ad settings, a consent interface, or live advertising are already configured when they are not. See <a className="inline-link" href="https://support.google.com/publisherpolicies/answer/10502938" target="_blank" rel="noreferrer">Google Publisher Policies</a>.</p>
+
+      <h2>7. The site owner's responsibility</h2>
       <p>Before advertising becomes live, the owner should verify that publisher account details are accurate, applicable consent controls are configured, the privacy and cookie pages reflect the real implementation, ads do not interfere with content, and the page is not under construction. The owner should also monitor the publisher dashboard and respond to any site-specific policy notifications.</p>
       <p>Maintaining this site is part of a student learning project, so the site should be improved in manageable steps. It is better to leave a reserved slot empty while the real advertising configuration is being completed than to simulate a live unit or publish made-up account information.</p>
 
-      <h2>7. Related pages and contact</h2>
+      <h2>8. Related pages and contact</h2>
       <p>Read the <a className="inline-link" href="/privacy">Privacy Policy</a> for information about data practices, the <a className="inline-link" href="/cookie-policy">Cookie Policy</a> for browser technologies, and the <a className="inline-link" href="/content-standards">Content and Editorial Standards</a> for the principles used to maintain site content. For feedback, visit the <a className="inline-link" href="/contact">Contact page</a>.</p>
     </article>
   );
