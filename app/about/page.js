@@ -1,8 +1,8 @@
 import { siteConfig } from "../site-config";
 
 export const metadata = {
-  title: "About the Creator and Project",
-  description: "Meet the student creator behind Bubble Trio Pro, learn why the project was built, how the three browser games work, and what the site does and does not offer."
+  title: "Meet Sonu — About Bubble Trio Pro",
+  description: "Meet Sonu, a student and beginner web developer in Lucknow, and learn why he built Bubble Trio Pro as a learning project with three original browser games."
 };
 
 export default function AboutPage() {
@@ -12,11 +12,13 @@ export default function AboutPage() {
       <h1>A student-built project for learning, practice, and play.</h1>
       <p className="page-lead">Bubble Trio Pro brings together three original browser-game experiences with thirty levels each. The purpose is not only to offer a short game break, but also to practise the real work behind a small website: planning, building, testing, explaining, publishing, and improving it over time.</p>
 
-      <h2>Who created Bubble Trio Pro?</h2>
-      <p>I am a student at {siteConfig.university}. I created Bubble Trio Pro as a personal learning and training project, using it as a practical way to improve my understanding of web development and digital publishing. Rather than treating development as only a set of code examples, I wanted to build something that a visitor could open, understand, interact with, and give feedback about.</p>
+      <h2>My story: I am Sonu</h2>
+      <p>My name is {siteConfig.creatorName}, and I am a {siteConfig.creatorRole} based in {siteConfig.city}. I am learning step by step and building this website as a practical way to improve myself, practise useful skills, and work towards becoming a successful developer in the future. I do not present myself as an expert. I am a learner who wants to keep improving by making real things, testing them, listening to feedback, and correcting mistakes.</p>
+      <p>I study in {siteConfig.university}, and Bubble Trio Pro is a personal project that I am developing alongside my learning. It is a place where I can practise turning an idea into an interface that people can actually use. Creating a website means thinking about more than code: the visitor needs clear instructions, working buttons, helpful explanations, easy navigation, accessible text, mobile support, and a way to contact the person who maintains the project.</p>
+      <p>My goal is to improve my own skills while making a simple and enjoyable game space that children, families, and other casual players can understand. I want visitors to see the rules, try a level, learn from a hint, and enjoy a friendly challenge. The games are made for entertainment; I do not claim they guarantee better memory, higher intelligence, improved school marks, or any medical or educational result.</p>
       <p>{siteConfig.creatorPurpose} This project gives me a place to practise several connected skills: designing a clear interface, creating interactive game logic, organising content, explaining game rules in plain language, building pages that work on different screen sizes, and learning how a website is prepared for publication. Writing the guide and policy pages is part of that learning process too. A useful website needs more than a good-looking home screen; it should explain its purpose, provide working navigation, be honest about its features, and make it possible for a visitor to find help or understand how the site operates.</p>
       {siteConfig.creatorName && <p><strong>Creator:</strong> {siteConfig.creatorName}</p>}
-      <p><strong>Creator role:</strong> {siteConfig.creatorRole}. <strong>University:</strong> {siteConfig.university}.</p>
+      <p><strong>Creator:</strong> {siteConfig.creatorName}. <strong>Role:</strong> {siteConfig.creatorRole}. <strong>Location:</strong> {siteConfig.city}. <strong>Study:</strong> {siteConfig.university}.</p>
       <p className="policy-note">{siteConfig.universityDisclaimer}</p>
 
       <h2>Why build a browser-game portal?</h2>
@@ -46,7 +48,7 @@ export default function AboutPage() {
 
       <h2>What I hope to learn next</h2>
       <p>The project can continue to improve through careful testing, more informative explanations, accessible controls, balanced levels, cleaner mobile layouts, and better documentation. Each change should be based on an observed problem or a clear visitor need, rather than adding features only for appearance. I also want to keep learning how to publish responsibly: describe data practices honestly, keep contact information current, maintain policies that match the real implementation, and avoid suggesting that a template or word count guarantees approval from an advertising programme.</p>
-      <p>Thank you for visiting Bubble Trio Pro. If you play a level, read a guide, or send a helpful report, you are helping turn a student learning exercise into a better-maintained web project. The most useful feedback is specific, respectful, and tied to something that can be improved.</p>
+      <p>Thank you for visiting Bubble Trio Pro. This website is one part of my learning journey. Every level I test, every explanation I improve, and every useful piece of feedback helps me understand how to build a better website. I hope the games give visitors a relaxed puzzle break and give me more experience as I continue learning. If you spot something confusing, please tell me what happened and which game or level needs attention. I cannot promise every idea will be added, but thoughtful feedback helps me decide what to improve next.</p>
 
       <h2>Project links</h2>
       <p>Use the <a className="inline-link" href="/#play">game room</a> to start playing, read the <a className="inline-link" href="/#player-guide">player guide</a> for rules and scoring, review the <a className="inline-link" href="/privacy">Privacy Policy</a>, or visit the <a className="inline-link" href="/contact">Contact page</a> to report an issue.</p>
