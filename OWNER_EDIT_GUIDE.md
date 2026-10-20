@@ -46,6 +46,7 @@ All of this editable configuration is in app/game-content.js.
 | Privacy disclosures | app/privacy/page.js |
 | Cookie and browser storage explanation | app/cookie-policy/page.js |
 | About/student project profile | app/about/page.js |
+| Family Play Guide | app/family-guide/page.js |
 | Contact page content | app/contact/page.js |
 | Cookie explanation | app/cookie-policy/page.js |
 | Usage terms | app/terms/page.js |
