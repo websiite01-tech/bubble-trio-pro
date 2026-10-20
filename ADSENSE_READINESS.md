@@ -25,6 +25,7 @@ This is a practical owner checklist, not a promise or guarantee of Google AdSens
 - [ ] Open every footer link in a normal signed-out browser and check that there are no broken or blank routes.
 - [ ] Confirm the canonical URL, robots.txt and sitemap use the exact production domain. A custom domain can be configured later.
 - [ ] Apply to AdSense from the publisher account you actually control. Do not claim approval before the account approves the site.
+- [ ] Google requires an AdSense publisher to be at least 18. If Sonu is under 18, a parent or legal guardian must apply using their own Google Account and be responsible for the account and payments: https://support.google.com/adsense/answer/14230.
 - [ ] Google requires AdSense publishers to be at least 18. If the actual account applicant is under 18, the parent/guardian route must be followed instead of entering a false birth date: https://support.google.com/adsense/answer/14230.
 - [ ] Add live ads only after the real publisher setup and review. Do not invent a publisher ID, fill slots with fake ad code, or add an ads.txt example ID.
 - [ ] If Google AdSense indicates an ads.txt record is needed, retrieve the real publisher information from the account and publish the matching record at the site's root. Check the AdSense status after Google recrawls the site.
