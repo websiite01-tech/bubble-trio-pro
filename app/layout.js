@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
                 </a>
                 <p>Original browser games, clear rules, and helpful guides for every player.</p>
               </div>
-              <div className="footer-links"><b>Explore</b><a href="/#game-library">Game library</a><a href="/#player-guide">How to play</a><a href="/about">About the project</a></div>
+              <div className="footer-links"><b>Explore</b><a href="/#game-library">Game library</a><a href="/#player-guide">How to play</a><a href="/family-guide">Family Play Guide</a><a href="/about">About Sonu</a></div>
               <div className="footer-links"><b>Policies & contact</b><a href="/privacy">Privacy policy</a><a href="/cookie-policy">Cookie policy</a><a href="/terms">Terms of use</a><a href="/advertising-disclosure">Advertising disclosure</a><a href="/disclaimer">Disclaimer</a><a href="/content-standards">Content standards</a><a href="/corrections">Corrections policy</a><a href="/accessibility">Accessibility</a><a href="/contact">Contact</a></div>
             </div>
             <div className="footer-bottom">
