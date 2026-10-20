@@ -46,10 +46,14 @@ export default function CookiePolicyPage() {
       <h2>8. Managing and removing browser data</h2>
       <p>Most browsers provide settings for clearing cookies and site data. The exact steps depend on your device and browser version. Clearing this website's stored data can reset the local level-progress record, so consider whether you wish to keep your progress before removing it. This project does not currently provide an online account or server-side recovery mechanism for local game progress.</p>
 
-      <h2>9. Changes to this policy</h2>
+      <h2>9. Children, families, and future advertising</h2>
+      <p>The site owner hopes children and families will enjoy these casual games. The present build does not load live AdSense ads, and the empty advertisement areas are only placeholders. Before activating advertising, the owner should determine whether the site or any section is child-directed under applicable rules and correctly configure the advertising service, privacy disclosures, and any relevant consent or ad-treatment controls.</p>
+      <p>Google's Publisher Policies explain that where an advertising service is implemented on a site or section covered by COPPA, the publisher must notify Google through an applicable supported method or tag the site/ad request for child-directed treatment. Google also restricts interest-based advertising based on activity of users known to be under 13 or on sites directed to under-13 users. Review the current <a className="inline-link" href="https://support.google.com/publisherpolicies/answer/10502938" target="_blank" rel="noreferrer">Google Publisher Policies</a> before enabling ads. A cookie notice alone does not apply the required technical treatment.</p>
+
+      <h2>10. Changes to this policy</h2>
       <p>This policy should be updated whenever the actual storage or service configuration changes, not just when the visual layout changes. The owner maintains the policy date in <code>app/site-config.js</code>. The date should be changed when the policy itself is materially revised. A new analytics, embedded video, advertising, or contact service should not be launched until the site accurately describes the resulting data handling.</p>
 
-      <h2>10. Questions</h2>
+      <h2>11. Questions</h2>
       <p>For the project's available feedback routes, visit the <a className="inline-link" href="/contact">Contact page</a>. For broader information, read the <a className="inline-link" href="/privacy">Privacy Policy</a>, <a className="inline-link" href="/advertising-disclosure">Advertising Disclosure</a>, and <a className="inline-link" href="/terms">Terms of Use</a>.</p>
     </article>
   );
