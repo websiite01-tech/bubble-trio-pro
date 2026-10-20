@@ -9,6 +9,11 @@ export default function sitemap() {
     { url: base + "/privacy", lastModified, changeFrequency: "yearly", priority: 0.4 },
     { url: base + "/contact", lastModified, changeFrequency: "yearly", priority: 0.4 },
     { url: base + "/cookie-policy", lastModified, changeFrequency: "yearly", priority: 0.4 },
-    { url: base + "/terms", lastModified, changeFrequency: "yearly", priority: 0.4 }
+    { url: base + "/terms", lastModified, changeFrequency: "yearly", priority: 0.4 },
+    { url: base + "/advertising-disclosure", lastModified, changeFrequency: "yearly", priority: 0.4 },
+    { url: base + "/content-standards", lastModified, changeFrequency: "monthly", priority: 0.5 },
+    { url: base + "/disclaimer", lastModified, changeFrequency: "yearly", priority: 0.3 },
+    { url: base + "/accessibility", lastModified, changeFrequency: "yearly", priority: 0.3 },
+    { url: base + "/corrections", lastModified, changeFrequency: "yearly", priority: 0.3 }
   ];
 }
