@@ -8,7 +8,7 @@ export const siteConfig = {
 
   // Personal profile. Add your name only if you want it shown publicly.
   creatorName: "",
-  creatorRole: "Student developer",
+  creatorRole: "student developer",
   university: "LU University",
   creatorPurpose: "A personal learning and training project built to practise browser-game development, interface design, writing, and publishing a small web application.",
   universityDisclaimer: "Bubble Trio Pro is an independent personal learning project. It is not an official LU University website, course, department, or university-endorsed project unless written permission and an official relationship are separately established.",
