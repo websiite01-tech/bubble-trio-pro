@@ -582,3 +582,25 @@ body:before{position:fixed;content:"";inset:0;z-index:-1;pointer-events:none;bac
 }
 
 .search-notice{margin:0;padding:10px 12px;border:1px solid #f0dba6;border-radius:8px;background:#fff9e7;color:#79602c;font-size:10px;line-height:1.7}
+
+
+/* Long-form editorial and family pages: premium reading layout */
+.content-page.longform-page{max-width:1000px;background:linear-gradient(145deg,rgba(24,22,45,.97),rgba(15,20,35,.98));border-color:rgba(167,139,250,.22);box-shadow:0 24px 70px rgba(6,7,20,.16)}
+.content-page.longform-page .page-lead{margin:12px 0 24px;padding:17px 19px;border:1px solid rgba(167,139,250,.22);border-left:3px solid #8b5cf6;border-radius:10px;background:rgba(124,58,237,.07);color:#d0d4e6;font-size:13px;line-height:1.9}
+.content-page.longform-page h1{line-height:1.12;color:#f5f3ff;max-width:850px}
+.content-page.longform-page h2{margin-top:34px;padding-top:4px;color:#f1edff;font-size:clamp(18px,2.3vw,22px);line-height:1.4;letter-spacing:-.025em}
+.content-page.longform-page h3{color:#ddd6fe;font-size:15px;line-height:1.5}
+.content-page.longform-page h2+h3{margin-top:14px}
+.content-page.longform-page p{margin:10px 0;color:#b8bfd2;font-size:13px;line-height:2}
+.content-page.longform-page strong{color:#eeeaff}
+.content-page.longform-page code{padding:2px 5px;border:1px solid rgba(167,139,250,.16);border-radius:5px;background:rgba(124,58,237,.11);color:#d8ccff;font-size:.92em}
+.content-page.longform-page .policy-note{padding:13px 16px;border:1px solid rgba(148,163,184,.2);border-radius:9px;background:rgba(148,163,184,.06);color:#aeb8ca}
+.content-page.longform-page .inline-link{color:#c4b5fd}
+.content-page.longform-page .inline-link:hover{color:#e9d5ff}
+.content-page.longform-page h2,.content-page.longform-page h3{scroll-margin-top:90px}
+@media(max-width:640px){
+  .content-page.longform-page{margin:22px 10px 38px;padding:22px 17px;border-radius:15px}
+  .content-page.longform-page .page-lead{padding:13px;font-size:12px}
+  .content-page.longform-page p{font-size:12px;line-height:1.95}
+  .content-page.longform-page h2{margin-top:27px}
+}
